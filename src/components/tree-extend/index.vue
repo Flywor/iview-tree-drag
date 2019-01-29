@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Input v-if="search" placeholder="点击查询" />
     <Tree
       :data="[{
         title: '',
@@ -31,20 +30,10 @@ export default {
     getChild: {
       type: Function,
       default: null
-    },
-    search: {
-      type: Boolean,
-      default: false
     }
   },
   data () {
     return {
-      data: [{
-        title: '',
-        nodeKey: 0,
-        loading: false,
-        children: []
-      }]
     }
   },
   methods: {
