@@ -25,7 +25,7 @@ let READY_TO_APPEND = null
 let APPEND_TO = null
 let APPEND_TARGET = null
 export default {
-  name: 'tree-extend',
+  name: 'tree-drag',
   props: {
     getChild: {
       type: Function,
@@ -78,12 +78,11 @@ export default {
       }
       if (data.length) {
         this.$set(node, 'children', data)
-        this.$set(node, 'loading', false)
         this.$set(node, 'expand', true)
       } else {
         this.$delete(node, 'children')
-        this.$delete(node, 'loading')
       }
+      this.$delete(node, 'loading')
     },
     handlerDragstart (e, { data }) {
       const { target } = e
@@ -111,7 +110,7 @@ export default {
       const { target } = e
       this.clearBorder()
       target.style.opacity = '1'
-      if (!APPEND_TARGET) {
+      if (!APPEND_TARGET || this.isChildren(data, APPEND_TARGET)) {
         return
       }
       // 从树上移除节点，就是拖动的节点
@@ -150,6 +149,17 @@ export default {
       READY_TO_APPEND = null
       APPEND_TO = null
       APPEND_TARGET = null
+    },
+    isChildren (node, child) {
+      const { children } = node
+      if (!children || !children.map) return false
+      let flag = children.some(c => c.nodeKey === child.nodeKey)
+      if (!flag) {
+        children.map(node => {
+          flag = this.isChildren(node, child)
+        })
+      }
+      return flag
     },
     setBorderOffsetElement (target) {
       this.clearBorder()

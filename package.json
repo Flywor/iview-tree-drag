@@ -1,16 +1,16 @@
 {
-  "name": "iview-tree-extend",
+  "name": "iview-tree-drag",
   "version": "0.0.1",
   "private": false,
   "description": "iview tree component extend drag and ajax-load",
-  "main": "dist/iview-tree-extend.common.js",
+  "main": "dist/iview-tree-drag.common.js",
   "author": "flywor<244406664@qq.com>",
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "package": "vue-cli-service build --target lib --name iview-tree-extend --dest dist ./src/components/tree-extend/index.js"
+    "package": "vue-cli-service build --target lib --name iview-tree-drag --dest dist ./src/components/tree-drag/index.js"
   },
   "dependencies": {
     "iview": "^3.1.5"
@@ -31,10 +31,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Flywor/iview-tree-extend.git"
+    "url": "https://github.com/Flywor/iview-tree-drag.git"
   },
   "bugs": {
-    "url": "https://github.com/Flywor/iview-tree-extend/issues"
+    "url": "https://github.com/Flywor/iview-tree-drag/issues"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
