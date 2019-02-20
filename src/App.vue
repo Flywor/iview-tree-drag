@@ -2,7 +2,7 @@
   <div id="app">
     <div>
       <p>选择了：{{selected.title}}</p>
-      <TreeExtend :getChild="getChild" @on-select="handlerSelect" @on-drag="handlerDrag"/>
+      <TreeDrag :getChild="getChild" @on-select="handlerSelect" @on-drag="handlerDrag" titleKey="name"/>
     </div>
     <div>
       <p>拖拽历史</p>
@@ -15,10 +15,10 @@
 </template>
 
 <script>
-import TreeExtend from './components/tree-extend'
+import TreeDrag from './components/tree-drag'
 export default {
   name: 'app',
-  components: { TreeExtend },
+  components: { TreeDrag },
   data () {
     return {
       split: 0.5,
@@ -34,7 +34,7 @@ export default {
           // 接口获取数据加载子节点
           for (let i = 0; i < 10; i++) {
             const child = {
-              title: `测试节点${node.nodeKey}-${i}`,
+              name: `测试节点${node.nodeKey}-${i}`,
               id: `${node.nodeKey}${i}`,
               loading: false,
               children: []

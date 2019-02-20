@@ -30,6 +30,10 @@ export default {
     getChild: {
       type: Function,
       default: null
+    },
+    titleKey: {
+      type: String,
+      default: 'title'
     }
   },
   data () {
@@ -198,7 +202,7 @@ export default {
             onClick={() => this.handlerTreeSelected(root, data)}
           >
             <Icon type={data.icon} size="18" />
-            {data.title}
+            {data[this.titleKey]}
           </span>
         )
       }
