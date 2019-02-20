@@ -13,6 +13,13 @@
     default: null
   }
 ```
+```javascript
+  // 指定显示的字段
+  titleKey: {
+    type: String,
+    default: 'title'
+  }
+```
 
 * 事件
 ```javascript
