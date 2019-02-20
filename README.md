@@ -6,11 +6,11 @@
 
 ###
 * 参数
-```
+```javascript
   // 接收返回Promise的方法
   getChild: {
-  type: Function,
-  default: null
+    type: Function,
+    default: null
   }
 ```
 
